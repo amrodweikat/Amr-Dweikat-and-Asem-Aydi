@@ -14,7 +14,7 @@ def hello_world():
    
 @app.route('/serach/graduate school', methods=['GET'] )
 def hello_world():
-	return urllib.request.urlopen('http://0.0.0.0:5001/').read()
+	return urllib.request.urlopen('http://0.0.0.0:5001/query_by_subject/graduate school').read()
 	
 if __name__ == '__main__':
     app.run(debug = True)    
