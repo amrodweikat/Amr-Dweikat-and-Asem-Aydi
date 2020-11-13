@@ -38,6 +38,11 @@ def lookup_3():
 @app.route('/lookup/4', methods=['GET'] )
 def lookup_4():
 	return urllib.request.urlopen('http://127.0.0.1:5001/query_by_item/4').read()
+
+@app.route('/buy/1', methods=['POST'] )
+def look():
+	return urllib.request.urlopen('http://127.0.0.2:5002/buy/1').read()
+
 	
 if __name__ == '__main__':
     app.run(debug = True,host = "127.0.0.2", port ="5001")    
