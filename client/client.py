@@ -32,8 +32,12 @@ def lookup_2():
 
 @app.route('/lookup/3', methods=['GET'] )
 def lookup_3():
-	return urllib.request.urlopen('http://127.0.0.1:5001/query_by_item/3').read()		
+	return urllib.request.urlopen('http://127.0.0.1:5001/query_by_item/3').read()	
 
+
+@app.route('/lookup/4', methods=['GET'] )
+def lookup_4():
+	return urllib.request.urlopen('http://127.0.0.1:5001/query_by_item/4').read()
 	
 if __name__ == '__main__':
     app.run(debug = True,host = "127.0.0.2", port ="5001")    
