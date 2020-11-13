@@ -72,6 +72,20 @@ def query_by_item_2():
 
 
 
+
+@app.route('/query_by_item/3',methods=['GET'])
+def query_by_item_3():
+	conn   = db_connection()
+	cursor = conn.cursor()
+	cursor = conn.execute("SELECT title,quantity,price FROM book WHERE id=3")
+	books = [
+		dict(title=row[0],quantity=row[1],price=row[2])
+		for row in cursor.fetchall()
+	]
+	if books is not None:
+		return jsonify(books)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug = True,port=5002)   
 
