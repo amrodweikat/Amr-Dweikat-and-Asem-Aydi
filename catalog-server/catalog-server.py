@@ -32,8 +32,18 @@ def query_by_subject():
 
 @app.route('/query_by_subject/graduate',methods=['GET'])
 def query_by_subject_2():
-	return jsonify({'id': 3,'title':'Xen and the Art of Surviving Graduate School'},{"id" : 4,'title':'Cooking for the Impatient Graduate Student'}) 
+	conn   = db_connection()
+	cursor = conn.cursor()
+	cursor = conn.execute("SELECT id,title FROM book WHERE topic='graduate school'")
+	books = [
+		dict(id=row[0],title=row[1])
+		for row in cursor.fetchall()
+	]
+	if books is not None:
+		return jsonify(books)
 
+	
+	
 
 
 
