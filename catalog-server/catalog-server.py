@@ -16,8 +16,8 @@ def db_connection():
 
 
 
-@app.route('/query_by_subject/distributed',methods=['GET'])
-def query_by_subject():
+@app.route('/query_by_subject/<word>',methods=['GET'])
+def query_by_subject(word):
 	conn   = db_connection()
 	cursor = conn.cursor()
 	cursor = conn.execute("SELECT id,title FROM book WHERE topic='distributed systems'")
